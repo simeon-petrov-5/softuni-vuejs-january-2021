@@ -1,0 +1,18 @@
+{
+  "name": "softuni-vue-2021",
+  "version": "0.1.0",
+  "homepage": "https://github.com/simeon-petrov-5/softuni-vue-2021",
+  "description": "Single repo containing examples, assignments, homeworks and general tasks showed in SoftUni's Vue Jan 2021 Course",
+  "keywords": [
+    "vue",
+    "learning",
+    "javascript",
+    "demo",
+    "example"
+  ],
+  "author": {
+    "name": "Simeon Petrov",
+    "url": "https://github.com/simeon-petrov-5"
+  },
+  "license": "MIT"
+}
