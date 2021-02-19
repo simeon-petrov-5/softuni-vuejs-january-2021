@@ -302,10 +302,6 @@ export default {
         alphaNum,
       },
       confirmedPassword: {
-        required,
-        minLength: minLength(4),
-        maxLength: maxLength(16),
-        alphaNum,
         sameAs: sameAs("password"),
       },
       description: { maxLength: maxLength(100) },
