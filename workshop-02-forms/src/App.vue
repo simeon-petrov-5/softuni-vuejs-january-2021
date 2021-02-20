@@ -269,6 +269,7 @@ export default {
         this.$v.formData,
         field
       );
+  
       if (!hasField) return false;
       const selectedField = this.$v.formData[field];
       const isReq = Object.prototype.hasOwnProperty.call(
