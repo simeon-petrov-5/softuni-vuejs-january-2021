@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Home from "@/views/BooksList.vue";
+import Home from "@/views/Home.vue";
 import Navigation from "@/components/Navigation.vue";
 export default {
   name: "App",

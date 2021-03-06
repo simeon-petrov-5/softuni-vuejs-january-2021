@@ -10,11 +10,11 @@ axios.interceptors.request.use(
   }
 );
 
-const baseURL = `https://www.googleapis.com/books/v1/volumes`;
+const baseURL = `https://www.googleapis.com/books/v1`;
 
 export async function fetchAllBooks(category = "magic") {
   try {
-    const res = await axios.get(baseURL, {
+    const res = await axios.get(`${baseURL}/volumes`, {
       params: {
         q: category,
         maxResults: 40,
@@ -30,7 +30,28 @@ export async function fetchAllBooks(category = "magic") {
 
 export async function fetchSingleBook(bookId) {
   try {
-    const res = await axios.get(`${baseURL}/${bookId}`);
+    const res = await axios.get(`${baseURL}/volumes/${bookId}`);
+    return res.data;
+  } catch (e) {
+    console.error("Unexpected error while loading book", e);
+    return [];
+  }
+}
+
+
+export async function fetchFavouriteBooks() {
+  try {
+    const res = await axios.get(`${baseURL}/users/${process.env.VUE_APP_BOOKS_USER_ID}/bookshelves/0/volumes`);
+    return res.data;
+  } catch (e) {
+    console.error("Unexpected error while loading book", e);
+    return [];
+  }
+}
+
+export async function fetchReadingBooks() {
+  try {
+    const res = await axios.get(`${baseURL}/users/${process.env.VUE_APP_BOOKS_USER_ID}/bookshelves/3/volumes`);
     return res.data;
   } catch (e) {
     console.error("Unexpected error while loading book", e);
