@@ -1,4 +1,4 @@
-
+# workshop-03-router-resources
 ## Steps to init the project
 
  1. Create a Mongo Database
@@ -18,7 +18,7 @@
  8. If you don't have a created admin user you will be prompt to do it now
  9. Select Node and later then v3.6
  10. Copy the link and replace the <placeholders> with your data
- 11. Set the link as an .env variable called `MONGO_CONNECTION` in each project
+ 11. Set the link as an .env variable called `MONGO_CONNECTION` in each project (API & DataSeeder)
 
     mongodb+srv://<username>:<password>@cluster0.7gwia.mongodb.net/<cluster-name>?retryWrites=true&w=majority
 
@@ -48,6 +48,7 @@ An .env file with `MONGO_CONNECTION` is required for the project!
     npm run start
 
 **User Access**
+There should be an already created user you can try to use:
 
-    email: 
-    password: 
+    email: user@abv.bg
+    password: 111111
