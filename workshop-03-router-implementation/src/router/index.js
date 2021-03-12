@@ -6,6 +6,7 @@ import userRouter from "./userRouter";
 Vue.use(VueRouter);
 
 const routes = [
+  { path: "/", redirect: "/javascript" },
   ...tutorialRoutes,
   ...userRouter,
   {

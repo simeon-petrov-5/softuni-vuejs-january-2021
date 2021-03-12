@@ -2,11 +2,13 @@
   <aside class="content-navigation">
     <ul>
       <li
-        v-for="(subject, index) in subjects"
-        :key="index"
+        v-for="subject in technologies"
+        :key="subject.id"
         :class="{ active: isActive(subject.name) }"
       >
-        <a href="#" @click="onSubjectClick(subject.name)">{{ subject.name }}</a>
+        <router-link tag="a" :to="getSubjectLink(subject.name)">
+          {{ subject.name }}
+        </router-link>
       </li>
     </ul>
   </aside>
@@ -18,30 +20,22 @@ export default {
     technologies: {
       type: Array,
       required: true,
-    },
-    selectedMenuId: {
-      type: String,
-      required: true,
-    },
-    selectedSubject: {
-      type: String,
-      required: true,
-    },
-  },
-  computed: {
-    subjects() {
-      const { subjects } = this.technologies.find(
-        (tech) => tech.id === this.selectedMenuId
-      );
-      return subjects;
-    },
+    }
   },
   methods: {
-    onSubjectClick(subjectName) {
-      this.$emit("subject-click", subjectName);
-    },
     isActive(subjectName) {
-      return this.selectedSubject === subjectName;
+      const selectedSubjName = this.$route.params.name;
+      if (!selectedSubjName) return false;
+
+      const transformedName = this.formatSubjectName(subjectName);
+      return selectedSubjName === transformedName;
+    },
+    formatSubjectName(subjName) {
+      return subjName.replace(/\s+/g, "-").toLowerCase();
+    },
+    getSubjectLink(subjName) {
+      const transformedName = this.formatSubjectName(subjName);
+      return `/${this.$route.name}/${transformedName}`;
     },
   },
 };

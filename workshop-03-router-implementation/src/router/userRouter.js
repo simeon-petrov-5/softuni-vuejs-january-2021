@@ -1,14 +1,11 @@
 const tutorialRoutes = [
   {
-    path: "user",
+    path: "/user",
     name: "user",
-    component: () =>
-      import(
-        /* webpackChunkName: "user-profile" */ "../views/User/UserProfile.vue"
-      ),
+    redirect: "/user/login",
   },
   {
-    path: "user/login",
+    path: "/user/login",
     name: "login",
     component: () =>
       import(
@@ -16,11 +13,19 @@ const tutorialRoutes = [
       ),
   },
   {
-    path: "user/register",
+    path: "/user/register",
     name: "register",
     component: () =>
       import(
         /* webpackChunkName: "user-profile" */ "../views/User/UserRegister.vue"
+      ),
+  },
+  {
+    path: "/user/profile",
+    name: "profile",
+    component: () =>
+      import(
+        /* webpackChunkName: "user-profile" */ "../views/User/UserProfile.vue"
       ),
   },
 ];

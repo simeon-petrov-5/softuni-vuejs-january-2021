@@ -1,13 +1,18 @@
 <template>
   <div class="navigation">
     <ul>
-      <li v-for="nav in navigationItems" :key="nav.id">
-        <a href="#" @click.prevent="onMenuClick(nav.id)">{{ nav.name }}</a>
+      <li v-for="nav in navigationItems" :key="nav">
+        <router-link tag="a" :to="`/${nav}`">
+          {{ nav }}
+        </router-link>
       </li>
     </ul>
 
     <ul>
       <li>
+        <router-link tag="a" :to="`/user`">
+          USERS
+        </router-link>
         <a href="#" @click="$emit('on-create-subject')">SUBJECT [+]</a>
       </li>
     </ul>
@@ -16,16 +21,15 @@
 
 <script>
 export default {
-  props: {
-    navigationItems: {
-      type: Array,
-      required: true,
-    }
+  data() {
+    return {
+      navigationItems: ["javascript", "java", "csharp", "python"],
+    };
   },
   methods: {
     onMenuClick(id) {
       this.$emit("nav-click", id);
-    }
+    },
   },
 };
 </script>

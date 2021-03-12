@@ -3,11 +3,11 @@ import { setupAxios } from "@/utils/axiosUtils.js";
 const axios = setupAxios();
 const API_ENDPOINT = "user";
 
-export async function loginUser(email, password) {
-  const body = { email, password };
+export async function loginUser(loginData) {
   try {
-    await axios.post(`${API_ENDPOINT}/login`, body);
-    // To do: handle token save
+    await axios.post(`${API_ENDPOINT}/login`, loginData, {
+      withCredentials: true,
+    });
     return true;
   } catch (error) {
     console.error("Unexpectedc error!", error);
@@ -18,7 +18,9 @@ export async function loginUser(email, password) {
 export async function registerUser(email, password) {
   const body = { email, password };
   try {
-    await axios.post(`${API_ENDPOINT}/register`, body);
+    await axios.post(`${API_ENDPOINT}/register`, body, {
+      withCredentials: true,
+    });
     return true;
   } catch (error) {
     console.error("Unexpectedc error!", error);
@@ -28,7 +30,7 @@ export async function registerUser(email, password) {
 
 export async function fetchUserProfile() {
   try {
-    const res = await axios.get("auth");
+    const res = await axios.get("auth", { withCredentials: true });
     return res.data;
   } catch (error) {
     console.error("Unexpectedc error!", error);

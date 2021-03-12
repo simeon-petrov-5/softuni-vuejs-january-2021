@@ -1,12 +1,35 @@
 const tutorialRoutes = [
   {
     path: "/javascript/:name?",
-    name: "tutorial",
+    name: "javascript",
     component: () =>
       import(
-        /* webpackChunkName: "tutorial" */ "@/views/Tutorial/ListTutorials.vue"
+        /* webpackChunkName: "tutorial" */ "../views/Tutorial/ListTutorials.vue"
       ),
-    alias: ["/java/:name?", "/csharp/:name?", "/python/:name?"],
+  },
+  {
+    path: "/java/:name?",
+    name: "java",
+    component: () =>
+      import(
+        /* webpackChunkName: "tutorial" */ "../views/Tutorial/ListTutorials.vue"
+      ),
+  },
+  {
+    path: "/csharp/:name?",
+    name: "csharp",
+    component: () =>
+      import(
+        /* webpackChunkName: "tutorial" */ "../views/Tutorial/ListTutorials.vue"
+      ),
+  },
+  {
+    path: "/python/:name?",
+    name: "python",
+    component: () =>
+      import(
+        /* webpackChunkName: "tutorial" */ "../views/Tutorial/ListTutorials.vue"
+      ),
   },
 ];
 
